@@ -10,6 +10,23 @@ body {
     line-height: 19px;
 }
 
+a:link {
+    color: #BDBDFF;
+}
+
+a:visited {
+    color: #FFA3FD;
+}
+
+a:hover {
+    color: #F5E28E;
+}
+
+a:active {
+    color: #FFB3B3;
+}
+
+
 h1 {
     text-align: center;
 }
