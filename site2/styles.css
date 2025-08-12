@@ -1,0 +1,317 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition:
+    height 0.4s ease,
+    padding 0.4s ease;
+  z-index: 1000;
+  gap: 2rem; /* Horizontal gap between logo and buttons */
+  padding: 0.3rem 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 1rem;
+}
+
+.logo img {
+  object-fit: contain;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 50px;
+  height: 60px;
+  transition: height 0.3s ease;
+}
+
+.nav-buttons {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin-right: 2rem;
+}
+
+.nav-buttons li {
+  padding: 0; /* remove padding from li */
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  height: 50px;
+  width: 100px;
+  overflow: hidden; /* optional: prevents overflow from child */
+}
+
+.nav-buttons li a {
+  display: flex; /* make it behave like a button */
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem; /* move padding here */
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.nav-buttons li a:hover {
+  background-color: rgba(0, 188, 212, 0.2); /* light teal */
+  color: #ff2a00;
+}
+
+.nav-buttons li a,
+.side-nav-buttons li a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600; /* Bold for button text */
+}
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+  .nav-buttons {
+    gap: 1.5rem; /* slightly less space between buttons */
+  }
+
+  .nav-buttons li {
+    height: 40px;
+    width: 80px;
+  }
+
+  .nav-buttons li a {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding-top: 100px;
+  }
+  .nav-buttons {
+    gap: 0.1rem;
+  }
+
+  .nav-buttons li a {
+    font-size: 0.75rem;
+    padding: 0.1rem;
+  }
+
+  .navbar {
+    padding: 1rem 0.2rem;
+    height: 100px;
+    background-image: none;
+  }
+
+  .logo {
+    font-size: 1rem;
+    display: flex;
+  }
+
+  .logo img {
+    height: 70px;
+  }
+}
+
+/* Default Desktop Styling */
+.desktop-nav {
+  display: flex;
+  list-style: none;
+}
+
+.hamburger,
+.side-menu {
+  display: none; /* Hidden on desktop */
+}
+
+/* Mobile Styling */
+@media (max-width: 1000px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    z-index: 1001;
+    padding-right: 2rem;
+  }
+
+  .side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* hidden off-screen */
+    width: 250px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding-top: 60px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* align everything to the right */
+  }
+
+  .side-menu.active {
+    right: 0; /* slide in from the right */
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+  }
+
+  .side-nav-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* align keys to the right */
+    padding: 0;
+    margin: 0;
+    width: 100%; /* make sure it fills the sidebar */
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+  }
+
+  .side-nav-buttons li {
+    position: relative; /* so we can position the line */
+    list-style: none;
+    width: 100%;
+  }
+
+  .side-nav-buttons li a {
+    display: block;
+    max-width: 150px;
+    width: 100%;
+    margin-left: auto;
+    box-sizing: border-box;
+    height: 40px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    text-align: left;
+    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.1);
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+    position: relative;
+  }
+
+  /* Horizontal line to the left of each black key */
+  .side-nav-buttons li a::before {
+    content: "";
+    position: absolute;
+    left: -100px; /* start far enough to the left */
+    top: 50%; /* center vertically */
+    transform: translateY(-50%);
+    width: 100px; /* match the max-width of the black key */
+    height: 1px;
+    background-color: #222;
+    transform-origin: center;
+    pointer-events: none; /* optional: prevents hover interference */
+  }
+
+  .side-nav-buttons li a:hover {
+    background-color: #555;
+  }
+
+  /* Blank key (non-clickable) */
+  .side-nav-buttons li.blank {
+    /* override the base li width:100% */
+    align-self: flex-end; /* push to the right edge like the black keys */
+    width: 150px; /* match the key width */
+    height: 40px; /* match the key height */
+    background-color: #000; /* black key */
+    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    border-radius: 0;
+    pointer-events: none; /* ensure it can't be tapped/focused */
+  }
+
+  /* The thin horizontal line to the left (same as anchor keys) */
+  .side-nav-buttons li.blank::before {
+    content: "";
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 1px;
+    background-color: #222;
+    pointer-events: none;
+  }
+
+  .side-nav-buttons li.spacer {
+    height: 30px; /* space between keys */
+    width: 100%;
+  }
+
+  .side-nav-buttons li.bigspacer {
+    height: 70px; /* space between keys */
+    width: 100%;
+  }
+
+  .side-nav-buttons li.bigspacer::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 250px; /* match left-side space */
+    height: 1px;
+    background-color: #333;
+  }
+}
+
+/* WebKit browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #140000;
+  border-left: 2px solid #2b0000; /* optional page separation */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff2a00; /* vibrant red */
+  border-radius: 4px;
+  box-shadow: inset 0 0 3px #500000; /* subtle depth */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff1a1a; /* lively hover tone */
+}
+
+/* Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #ff2a00 #140000;
+}

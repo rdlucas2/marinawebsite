@@ -1,0 +1,315 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-top: 80px;
+  background-color: #6f0000;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.footer {
+  padding: 8px;
+  text-align: center;
+  margin: auto;
+  clear: both;
+  font-size: 12px;
+  color: white;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.thumb-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.1);
+  color: white;
+  font-family: "Georgia", serif;
+  white-space: nowrap; /* Prevent line breaks */
+  width: fit-content;
+  max-width: 90%; /* Prevent overflow */
+  text-align: center;
+  font-size: 2vw;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  z-index: 2;
+  pointer-events: none;
+  text-shadow: none;
+  user-select: none; /* Modern browsers */
+  -webkit-user-select: none; /* Safari/Chrome */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.item:nth-child(1) .thumb-title,
+.item:nth-child(2) .thumb-title {
+  display: none;
+}
+
+.item {
+  width: 16vw;
+  height: 4rem;
+  list-style-type: none;
+  position: absolute;
+  top: 85%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  border: 5px solid #000000;
+  box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
+  transition:
+    transform 0.1s,
+    left 0.75s,
+    top 0.75s,
+    width 0.75s,
+    height 0.75s;
+
+  &:nth-child(1),
+  &:nth-child(2) {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    opacity: 1;
+  }
+
+  &:nth-child(3) {
+    left: 30%;
+  }
+  &:nth-child(4) {
+    left: calc(30% + 20vw);
+  }
+  &:nth-child(5) {
+    left: calc(30% + 40vw);
+  }
+  &:nth-child(6) {
+    left: calc(30% + 60vw);
+    opacity: 0;
+  }
+  &:nth-child(n + 7) {
+    display: none;
+  }
+}
+
+.content {
+  width: 80vw;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font:
+    400 0.85rem helvetica,
+    sans-serif;
+  color: white;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  display: none;
+  height: 600px;
+
+  & .title {
+    font-family: "Georgia", serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 3rem;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  & .description {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1.2rem 1.5rem;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-family: "Verdana", sans-serif;
+    line-height: 1.25;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  & .description a {
+    color: aqua;
+  }
+  & .description ul {
+    list-style: none;
+    padding-left: 1rem;
+  }
+  & .description p,
+  .description li {
+    margin-bottom: 0.6rem;
+  }
+
+  & button {
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    border: 2px solid white;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    cursor: pointer;
+  }
+}
+
+.item:nth-of-type(2) .content {
+  display: block;
+  animation: show 0.75s ease-in-out 0.3s forwards;
+}
+
+@keyframes show {
+  0% {
+    filter: blur(5px);
+    transform: translateY(calc(-50% + 75px));
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes mobileFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    filter: brightness(80%) blur(2px);
+  }
+  60% {
+    opacity: 0.7;
+    transform: translateY(-5px) scale(1.02);
+    filter: brightness(100%) blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: brightness(100%) blur(0);
+  }
+}
+
+body.init .item {
+  transition: none !important;
+}
+
+.nav {
+  position: absolute;
+  top: 85%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  user-select: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.btn {
+  background: linear-gradient(135deg, #e96443 0%, #f27c38 100%);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: "Poppins", sans-serif;
+  width: 100px;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #d3542f 0%, #e76b2c 100%);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.slider-section {
+  position: relative;
+  width: 90%;
+  height: 600px;
+  padding: 2rem;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center; /* Or try 800px for fixed width */
+  max-width: 1600px;
+  border-radius: 25px;
+  background-color: black; /* Optional background */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 2rem 0; /* ✅ Top and bottom margin */
+  text-align: center; /* ✅ Center the text horizontally */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1000px) {
+  .content {
+    & .title {
+      font-size: 2rem;
+    }
+    & button {
+      font-size: 0.7rem;
+    }
+  }
+  .item .thumb-title {
+    display: none;
+  }
+  .item {
+    &:not(:nth-child(2)) {
+      display: none;
+    }
+    animation: mobileFade 0.7s ease-out forwards;
+  }
+  .nav {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    user-select: none;
+  }
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
