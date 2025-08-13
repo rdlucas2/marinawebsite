@@ -257,7 +257,6 @@ body.init .item {
   overflow: hidden;
   justify-content: center;
   align-items: center; /* Or try 800px for fixed width */
-  max-width: 1600px;
   border-radius: 25px;
   background-color: black; /* Optional background */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
