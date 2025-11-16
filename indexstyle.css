@@ -235,13 +235,15 @@ body {
 }
 
 .logo {
+  user-select: none;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   height: 100%;
   margin-left: 1rem;
 }
 
 .logo img {
+  display: block;
   object-fit: contain;
   border-style: solid;
   border-width: 3px;
@@ -249,8 +251,12 @@ body {
   border-radius: 50px;
   height: 75px; /* Large enough to show piano keys */
   transition: height 0.3s ease;
-  margin-top: auto; /* pushes buttons to bottom */
-  margin-bottom: 0.1rem; /* optional spacing from bottom */
+  margin-top: auto;
+  margin-bottom: 0.1rem;
+}
+
+.navbar.shrink .logo {
+  align-items: center;
 }
 
 .navbar.shrink .logo img {
@@ -358,11 +364,13 @@ body {
   }
 
   .logo {
+    align-items: center;
     font-size: 1rem;
     display: flex;
   }
 
   .logo img {
+    margin: 0;
     height: 70px;
   }
 }
@@ -484,7 +492,7 @@ body {
   .side-nav-buttons li a:hover {
     background-color: #555;
   }
-  
+
   /* Blank key (non-clickable) */
   .side-nav-buttons li.blank {
     /* override the base li width:100% */
@@ -510,7 +518,7 @@ body {
     background-color: #222;
     pointer-events: none;
   }
-  
+
   .side-nav-buttons li.spacer {
     height: 30px; /* space between keys */
     width: 100%;
