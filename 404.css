@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #5d0000;
+  color: white;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.error-page {
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-page h1 {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  color: #ff7f50; /* sunset orange */
+}
+
+.error-page p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.home-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #e96443 0%, #f27c38 100%);
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.home-btn:hover {
+  background: linear-gradient(135deg, #d3542f 0%, #e76b2c 100%);
+  transform: translateY(-2px);
+}
